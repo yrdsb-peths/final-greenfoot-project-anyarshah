@@ -9,11 +9,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Snake extends Actor
 {
     /**
-     * Act - do whatever the Snake wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Moves the snake in the direction of the pressed key.
      */
     public void act()
     {
-        
+        if(Greenfoot.isKeyDown("right"))
+        {
+            setRotation(0);
+            move(2);
+        }
+        if(Greenfoot.isKeyDown("up"))
+        {
+            setRotation(90);
+            move(2);
+        }
+        if(Greenfoot.isKeyDown("left"))
+        {
+            setRotation(180);
+            move(2);
+        }
+        if(Greenfoot.isKeyDown("down"))
+        {
+            setRotation(270);
+            move(2);
+        }
     }
 }
