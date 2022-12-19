@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * The world where the mouse and snake live.
  * 
  * @author Anya Shah 
  * @version 12/19/2022
@@ -13,8 +13,10 @@ public class MyWorld extends World
      * 
      */
     public MyWorld()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+    {   
+        super(600, 500, 1, false);
+        
+        Snake snake = new Snake();
+        addObject(snake, 100, 400);
     }
 }
