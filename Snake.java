@@ -20,7 +20,7 @@ public class Snake extends Actor
         }
         if(Greenfoot.isKeyDown("up"))
         {
-            setRotation(90);
+            setRotation(270);
             move(2);
         }
         if(Greenfoot.isKeyDown("left"))
@@ -30,7 +30,7 @@ public class Snake extends Actor
         }
         if(Greenfoot.isKeyDown("down"))
         {
-            setRotation(270);
+            setRotation(90);
             move(2);
         }
     }
