@@ -12,14 +12,18 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      */
     public int score = 0;
+    Label scoreLabel;
     public MyWorld()
     {   
         super(600, 500, 1, false); 
-        
+        // Create a snake
         Snake snake = new Snake();
         addObject(snake, 100, 400);
         // Spawns a mouse randomly in the world.
         spawnMouse();
+        // Create a label
+        scoreLabel = new Label(0, 80);
+        addObject(scoreLabel, 50, 50);
     }
     public void spawnMouse()
     {
@@ -31,5 +35,6 @@ public class MyWorld extends World
     public void increaseScore()
     {
         score++;
+        scoreLabel.setValue(score);
     }
 }
