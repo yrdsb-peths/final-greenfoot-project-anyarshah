@@ -10,8 +10,8 @@ public class MyWorld extends World
 {
     /**
      * Constructor for objects of class MyWorld.
-     * 
      */
+    public int score = 0;
     public MyWorld()
     {   
         super(600, 500, 1, false); 
@@ -27,5 +27,9 @@ public class MyWorld extends World
         int x = Greenfoot.getRandomNumber(501);
         int y = Greenfoot.getRandomNumber(401);
         addObject(mouse, x + 50, y + 50);
+    }
+    public void increaseScore()
+    {
+        score++;
     }
 }
