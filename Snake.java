@@ -38,6 +38,7 @@ public class Snake extends Actor
     /**
      * Removes the mouse from the screen when the snake touches it.
      * Spawns a new mouse once one is eaten.
+     * Increases the score.
      */
     public void eat()
     {
@@ -46,6 +47,7 @@ public class Snake extends Actor
             removeTouching(Mouse.class);
             MyWorld world = (MyWorld) getWorld();
             world.spawnMouse();
+            world.increaseScore();
         }
     }
 }
