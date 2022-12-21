@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The snake.
  * 
  * @author Anya Shah
- * @version 12/20/2022
+ * @version 12/21/2022
  */
 public class Snake extends Actor
 {
@@ -39,6 +39,7 @@ public class Snake extends Actor
      * Removes the mouse from the screen when the snake touches it.
      * Spawns a new mouse once one is eaten.
      * Increases the score.
+     * Every time 10 mice are eaten, one bomb gets spawned. 
      */
     public void eat()
     {
@@ -48,6 +49,22 @@ public class Snake extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.spawnMouse();
             world.increaseScore();
+            if(world.score % 10 == 0)
+            {
+                world.spawnBomb();
+            }
+        }
+        if(isTouching(Bomb.class))
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.gameOver();
+            Greenfoot.stop();
+        }
+        if(isAtEdge())
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.gameOver();
+            Greenfoot.stop();
         }
     }
 }
