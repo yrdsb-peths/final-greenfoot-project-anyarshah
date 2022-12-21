@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The world where the mouse and snake live.
  * 
  * @author Anya Shah 
- * @version 12/20/2022
+ * @version 12/21/2022
  */
 public class MyWorld extends World
 {
@@ -21,11 +21,8 @@ public class MyWorld extends World
         addObject(snake, 100, 400);
         // Spawns a mouse randomly in the world.
         spawnMouse();
-        // Spawns a bomb randomly every time 5 mice are eaten.
-        if(score % 5 == 0)
-        {
-            spawnBomb();
-        }
+        // Spawns a bomb randomly in the world.
+        spawnBomb();
         // Create a label
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
