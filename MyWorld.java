@@ -21,6 +21,11 @@ public class MyWorld extends World
         addObject(snake, 100, 400);
         // Spawns a mouse randomly in the world.
         spawnMouse();
+        // Spawns a bomb randomly every time 5 mice are eaten.
+        if(score % 5 == 0)
+        {
+            spawnBomb();
+        }
         // Create a label
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
@@ -43,5 +48,10 @@ public class MyWorld extends World
     {
         score++;
         scoreLabel.setValue(score);
+    }
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("Game Over", 100);
+        addObject(gameOverLabel, getWidth() / 2, getHeight() / 2);
     }
 }

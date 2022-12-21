@@ -49,5 +49,12 @@ public class Snake extends Actor
             world.spawnMouse();
             world.increaseScore();
         }
+        if(isTouching(Bomb.class))
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.gameOver();
+            world.removeObject(this);
+            Greenfoot.stop();
+        }
     }
 }
