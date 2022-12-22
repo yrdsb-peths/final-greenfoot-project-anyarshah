@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bomb extends Actor
 {
-    int speed = 1;
+    int speed = 4;
     public void act()
     {
         int x = getX();
@@ -19,6 +19,7 @@ public class Bomb extends Actor
         if(getY() >= world.getHeight())
         {
             world.spawnBomb();
+            getWorld().removeObject(this);
         }
     }
     public void setSpeed(int spd)
