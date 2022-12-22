@@ -27,6 +27,8 @@ public class MyWorld extends World
         // Create a label
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
+        // Create a test animal
+        testAnimal();
     }
     public void spawnMouse()
     {
@@ -52,5 +54,10 @@ public class MyWorld extends World
     {
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, getWidth() / 2, getHeight() / 2);
+    }
+    public void testAnimal()
+    {
+        GreenfootImage tA = new GreenfootImage(score + 1, 10);
+        tA.drawRect(200, 400, score + 1, 10);
     }
 }
