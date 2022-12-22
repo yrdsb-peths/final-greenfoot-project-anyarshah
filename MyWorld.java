@@ -13,6 +13,7 @@ public class MyWorld extends World
      */
     public int score = 0;
     Label scoreLabel;
+    int level = 1;
     public MyWorld()
     {   
         super(600, 500, 1, false); 
@@ -37,9 +38,10 @@ public class MyWorld extends World
     public void spawnBomb()
     {
         Bomb bomb = new Bomb();
+        bomb.setSpeed(level);
         int x = Greenfoot.getRandomNumber(501);
-        int y = Greenfoot.getRandomNumber(401);
-        addObject(bomb, x + 50, y + 50);
+        int y = 10;
+        addObject(bomb, x + 50, y);
     }
     public void increaseScore()
     {
