@@ -24,7 +24,7 @@ public class MyWorld extends World
         spawnMouse();
         // Spawns a bomb randomly in the world.
         spawnBomb();
-        // Create a label
+        // Creates the score label.
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
     }

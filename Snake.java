@@ -35,15 +35,15 @@ public class Snake extends Actor
         }
         eat();
     }
-    /**
-     * Removes the mouse from the screen when the snake touches it.
-     * Spawns a new mouse once one is eaten.
-     * Increases the score.
-     * Each time 10 mice are eaten, a bomb gets spawned.
-     * If 15 mice are eaten, player moves to the next level.
-     */
     public void eat()
     {
+        /**
+         * Removes the mouse from the screen when the snake touches it.
+         * Spawns a new mouse once one is eaten.
+         * Increases the score.
+         * Each time 10 mice are eaten, a bomb gets spawned.
+         * If 15 mice are eaten, player moves to the next level.
+         */
         if(isTouching(Mouse.class))
         {
             removeTouching(Mouse.class);
@@ -56,15 +56,17 @@ public class Snake extends Actor
             }
             if(world.score == 15)
             {
-                world.nextLevel();
+                world.nextLevel();   
             }
         }
+        // Stops the game and "game over" appears on the screen if the snake touches the bomb.
         if(isTouching(Bomb.class))
         {
             MyWorld world = (MyWorld) getWorld();
             world.gameOver();
             Greenfoot.stop();
         }
+        // Stops the game and "game over" appears on the screen if the snake reaches the edge.
         if(isAtEdge())
         {
             MyWorld world = (MyWorld) getWorld();
