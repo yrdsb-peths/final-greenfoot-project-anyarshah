@@ -27,8 +27,6 @@ public class MyWorld extends World
         // Create a label
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
-        // Create a test animal
-        testAnimal();
     }
     public void spawnMouse()
     {
@@ -55,9 +53,16 @@ public class MyWorld extends World
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, getWidth() / 2, getHeight() / 2);
     }
-    public void testAnimal()
+    public void nextLevel()
     {
-        GreenfootImage tA = new GreenfootImage(score + 1, 10);
-        tA.drawRect(200, 400, score + 1, 10);
+        Label nextLevelLabel = new Label("You beat this level!", 100);
+        addObject(nextLevelLabel, getWidth() / 2, (getHeight() / 2) - 100);
+        Label moveOnLabel = new Label("Press <space> to move on.", 100);
+        addObject(moveOnLabel, getWidth() / 2, (getHeight() / 2) + 100);
+        if(Greenfoot.isKeyDown("space"))
+        {
+            MyWorld2 l2 = new MyWorld2();
+            Greenfoot.setWorld(l2);
+        }
     }
 }

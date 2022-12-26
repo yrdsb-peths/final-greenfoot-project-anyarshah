@@ -39,7 +39,8 @@ public class Snake extends Actor
      * Removes the mouse from the screen when the snake touches it.
      * Spawns a new mouse once one is eaten.
      * Increases the score.
-     * Every time 10 mice are eaten, one bomb gets spawned. 
+     * Each time 10 mice are eaten, a bomb gets spawned.
+     * If 15 mice are eaten, player moves to the next level.
      */
     public void eat()
     {
@@ -51,7 +52,11 @@ public class Snake extends Actor
             world.increaseScore();
             if(world.score % 10 == 0)
             {
-                world.spawnBomb();
+                world.spawnBomb();   
+            }
+            if(world.score == 15)
+            {
+                world.nextLevel();
             }
         }
         if(isTouching(Bomb.class))
