@@ -1,14 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld2 here.
+ * Level 2 of the game: The world where the astronaut, star, and asteroid exist.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Anya Shah
+ * @version 12/26/2022
  */
 public class MyWorld2 extends World
 {
-
     /**
      * Constructor for objects of class MyWorld2.
      * 

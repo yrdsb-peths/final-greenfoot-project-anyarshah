@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The snake.
  * 
  * @author Anya Shah
- * @version 12/21/2022
+ * @version 12/26/2022
  */
 public class Snake extends Actor
 {
