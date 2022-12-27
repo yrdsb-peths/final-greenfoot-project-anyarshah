@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Snake extends Actor
 {
     GreenfootSound snakeSound = new GreenfootSound("snake_sound.mp3");
+    GreenfootSound bombSound = new GreenfootSound("bomb_sound.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[6];
     GreenfootImage[] idleLeft = new GreenfootImage[6];
     GreenfootImage[] idleUp = new GreenfootImage[6];
@@ -130,14 +131,24 @@ public class Snake extends Actor
                 world.spawnBomb();   
             }
         }
-        // Stops the game and "game over" appears on the screen if the snake touches the bomb.
+        /**
+         * If snake touches bomb:
+         * Bomb sound plays.
+         * Game over appears on screen.
+         * Game stops.
+         */
         if(isTouching(Bomb.class))
         {
             MyWorld world = (MyWorld) getWorld();
+            bombSound.play();
             world.gameOver();
             Greenfoot.stop();
         }
-        // Stops the game and "game over" appears on the screen if the snake reaches the edge.
+        /**
+         * If snake touches edge:
+         * Game over appears on screen.
+         * Game stops.
+         */
         if(isAtEdge())
         {
             MyWorld world = (MyWorld) getWorld();
@@ -147,8 +158,8 @@ public class Snake extends Actor
     }
     /**
      * Once 15 mice are eaten, 2 labels appear on the screen.
-     * Once says the player beat the first level.
-     * The next instructs the player on what to do to move on.
+     * One says the player beat the first level.
+     * The other one instructs the player on what to do to move on.
      * Once the player clicks the spacebar, they move on to the next level.
      */
     public void nextLevel()
