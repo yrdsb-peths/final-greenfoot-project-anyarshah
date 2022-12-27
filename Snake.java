@@ -4,10 +4,76 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The snake.
  * 
  * @author Anya Shah
- * @version 12/26/2022
+ * @version 12/27/2022
  */
 public class Snake extends Actor
 {
+    GreenfootSound snakeSound = new GreenfootSound("snake_sound.mp3");
+    GreenfootImage[] idleRight = new GreenfootImage[6];
+    GreenfootImage[] idleLeft = new GreenfootImage[6];
+    GreenfootImage[] idleUp = new GreenfootImage[6];
+    GreenfootImage[] idleDown = new GreenfootImage[6];
+    
+    // Direction the snake is facing.
+    String facing = "right";
+    SimpleTimer animationTimer = new SimpleTimer();
+    public Snake()
+    {
+        for(int i = 0; i < idleRight.length; i++)
+        {
+            idleRight[i] = new GreenfootImage("images/snake_idle/idle" + i + ".png");
+            idleRight[i].scale(80, 70);
+        }
+        for(int i = 0; i < idleLeft.length; i++)
+        {
+            idleLeft[i] = new GreenfootImage("images/snake_idle/idle" + i + ".png");
+            idleLeft[i].mirrorHorizontally();
+            idleLeft[i].scale(80, 70);
+        }
+        for(int i = 0; i < idleUp.length; i++)
+        {
+            idleUp[i] = new GreenfootImage("images/snake_idle/idle" + i + ".png");
+            idleUp[i].scale(80, 70);
+        }
+        for(int i = 0; i < idleDown.length; i++)
+        {
+            idleDown[i] = new GreenfootImage("images/snake_idle/idle" + i + ".png");
+            idleDown[i].scale(80, 70);
+        }
+        animationTimer.mark();
+        // Sets the initial image of the snake.
+        setImage(idleRight[0]);
+    }
+    // Animates the snake.
+    int imageIndex = 0;
+    public void animateSnake()
+    {
+        if(animationTimer.millisElapsed() < 175)
+        {
+            return;
+        }
+        animationTimer.mark();
+        if(facing.equals("right"))
+        {
+            setImage(idleRight[imageIndex]);   
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        }
+        if(facing.equals("left"))
+        {
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
+        if(facing.equals("up"))
+        {
+            setImage(idleUp[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleUp.length;
+        }
+        if(facing.equals("down"))
+        {
+            setImage(idleDown[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleDown.length;
+        }
+    }
     /**
      * Moves the snake in the direction of the pressed key.
      */
@@ -17,22 +83,29 @@ public class Snake extends Actor
         {
             setRotation(0);
             move(2);
+            facing = "right";
         }
         if(Greenfoot.isKeyDown("up"))
         {
+            setRotation(0);
             setRotation(270);
             move(2);
+            facing = "up";
         }
         if(Greenfoot.isKeyDown("left"))
         {
-            setRotation(180);
-            move(2);
+            setRotation(0);
+            move(-2);
+            facing = "left";
         }
         if(Greenfoot.isKeyDown("down"))
         {
+            setRotation(0);
             setRotation(90);
             move(2);
+            facing = "down";
         }
+        animateSnake();
         eat();
         nextLevel();
     }
@@ -42,6 +115,7 @@ public class Snake extends Actor
          * Removes the mouse from the screen when the snake touches it.
          * Spawns a new mouse once one is eaten.
          * Increases the score.
+         * Snake sound plays.
          * Each time 10 mice are eaten, a bomb gets spawned.
          */
         if(isTouching(Mouse.class))
@@ -50,6 +124,7 @@ public class Snake extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.spawnMouse();
             world.increaseScore();
+            snakeSound.play();
             if(world.score % 10 == 0)
             {
                 world.spawnBomb();   
