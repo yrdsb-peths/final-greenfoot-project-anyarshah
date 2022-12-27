@@ -157,8 +157,10 @@ public class Snake extends Actor
         if(world.score == 15)
         {
             Label nextLevelLabel = new Label("You beat this level!", 55);
+            nextLevelLabel.setFillColor(Color.BLUE);
             world.addObject(nextLevelLabel, 300, 175);
             Label moveOnLabel = new Label("Press <space> to move on.", 55);
+            moveOnLabel.setFillColor(Color.BLUE);
             world.addObject(moveOnLabel, 300, 325);
             if(Greenfoot.isKeyDown("space"))
             {
