@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The world where the mouse and snake live.
+ * Level 1 of the game: The world where the snake, mouse, and bomb exist.
  * 
  * @author Anya Shah 
- * @version 12/21/2022
+ * @version 12/26/2022
  */
 public class MyWorld extends World
 {
@@ -24,7 +24,7 @@ public class MyWorld extends World
         spawnMouse();
         // Spawns a bomb randomly in the world.
         spawnBomb();
-        // Create a label
+        // Creates the score label.
         scoreLabel = new Label(0, 80);
         addObject(scoreLabel, 50, 50);
     }
