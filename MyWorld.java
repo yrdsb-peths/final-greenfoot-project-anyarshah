@@ -53,15 +53,4 @@ public class MyWorld extends World
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, getWidth() / 2, getHeight() / 2);
     }
-    public void nextLevel()
-    {
-        Label nextLevelLabel = new Label("You beat this level!", 55);
-        addObject(nextLevelLabel, getWidth() / 2, (getHeight() / 2) - 75);
-        Label moveOnLabel = new Label("Press <space> to move on.", 55);
-        addObject(moveOnLabel, getWidth() / 2, (getHeight() / 2) + 75);
-        if(Greenfoot.isKeyDown("space"))
-        {
-            Greenfoot.setWorld(new MyWorld2());
-        }
-    }
 }

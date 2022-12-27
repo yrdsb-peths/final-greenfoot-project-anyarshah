@@ -34,6 +34,7 @@ public class Snake extends Actor
             move(2);
         }
         eat();
+        nextLevel();
     }
     public void eat()
     {
@@ -42,7 +43,6 @@ public class Snake extends Actor
          * Spawns a new mouse once one is eaten.
          * Increases the score.
          * Each time 10 mice are eaten, a bomb gets spawned.
-         * If 15 mice are eaten, player moves to the next level.
          */
         if(isTouching(Mouse.class))
         {
@@ -53,10 +53,6 @@ public class Snake extends Actor
             if(world.score % 10 == 0)
             {
                 world.spawnBomb();   
-            }
-            if(world.score == 15)
-            {
-                world.nextLevel();   
             }
         }
         // Stops the game and "game over" appears on the screen if the snake touches the bomb.
@@ -72,6 +68,27 @@ public class Snake extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.gameOver();
             Greenfoot.stop();
+        }
+    }
+    /**
+     * Once 15 mice are eaten, 2 labels appear on the screen.
+     * Once says the player beat the first level.
+     * The next instructs the player on what to do to move on.
+     * Once the player clicks the spacebar, they move on to the next level.
+     */
+    public void nextLevel()
+    {
+        MyWorld world = (MyWorld) getWorld();
+        if(world.score == 15)
+        {
+            Label nextLevelLabel = new Label("You beat this level!", 55);
+            world.addObject(nextLevelLabel, 300, 175);
+            Label moveOnLabel = new Label("Press <space> to move on.", 55);
+            world.addObject(moveOnLabel, 300, 325);
+            if(Greenfoot.isKeyDown("space"))
+            {
+                Greenfoot.setWorld(new MyWorld2());
+            }
         }
     }
 }
