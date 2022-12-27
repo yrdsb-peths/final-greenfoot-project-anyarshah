@@ -10,10 +10,12 @@ public class MyWorld2 extends World
 {
     /**
      * Constructor for objects of class MyWorld2.
-     * 
      */
     public MyWorld2()
     {    
-        super(600, 500, 1, false); 
+        super(600, 500, 1, false);
+        // Create an astronaut
+        Astronaut astronaut = new Astronaut();
+        addObject(astronaut, 100, 400);
     }
 }
