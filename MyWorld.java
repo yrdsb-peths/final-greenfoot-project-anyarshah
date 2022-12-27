@@ -61,8 +61,7 @@ public class MyWorld extends World
         addObject(moveOnLabel, getWidth() / 2, (getHeight() / 2) + 75);
         if(Greenfoot.isKeyDown("space"))
         {
-            MyWorld2 l2 = new MyWorld2();
-            Greenfoot.setWorld(l2);
+            Greenfoot.setWorld(new MyWorld2());
         }
     }
 }
