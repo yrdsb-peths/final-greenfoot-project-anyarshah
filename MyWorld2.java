@@ -11,6 +11,8 @@ public class MyWorld2 extends World
     /**
      * Constructor for objects of class MyWorld2.
      */
+    public int score = 0;
+    Label scoreLabel;
     int level = 1;
     public MyWorld2()
     {    
@@ -22,6 +24,9 @@ public class MyWorld2 extends World
         spawnAsteroid();
         // Spawns a star randomly in the world.
         spawnStar();
+        // Creates score label.
+        scoreLabel = new Label(0, 80);
+        addObject(scoreLabel, 50, 50);
     }
     public void spawnAsteroid()
     {
@@ -38,5 +43,20 @@ public class MyWorld2 extends World
         int x = Greenfoot.getRandomNumber(501);
         int y = 10;
         addObject(star, x + 50, y);
+    }
+    public void increaseScore()
+    {
+        score++;
+        scoreLabel.setValue(score);
+    }
+    public void decreaseScore()
+    {
+        score--;
+        scoreLabel.setValue(score);
+    }
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("Game Over", 100);
+        addObject(gameOverLabel, getWidth() / 2, getHeight() / 2);
     }
 }
