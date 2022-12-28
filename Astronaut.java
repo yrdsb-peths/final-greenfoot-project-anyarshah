@@ -49,6 +49,7 @@ public class Astronaut extends Actor
             MyWorld2 world = (MyWorld2) getWorld();
             world.spawnStar();
             world.increaseScore();
+            world.increaseScore();
             if(world.score % 5 == 0)
             {
                 world.spawnAsteroid();   
