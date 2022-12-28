@@ -121,11 +121,11 @@ public class Snake extends Actor
          */
         if(isTouching(Mouse.class))
         {
+            snakeSound.play();
             removeTouching(Mouse.class);
             MyWorld world = (MyWorld) getWorld();
             world.spawnMouse();
             world.increaseScore();
-            snakeSound.play();
             if(world.score % 10 == 0)
             {
                 world.spawnBomb();   
@@ -139,8 +139,8 @@ public class Snake extends Actor
          */
         if(isTouching(Bomb.class))
         {
-            MyWorld world = (MyWorld) getWorld();
             bombSound.play();
+            MyWorld world = (MyWorld) getWorld();
             world.gameOver();
             Greenfoot.stop();
         }
