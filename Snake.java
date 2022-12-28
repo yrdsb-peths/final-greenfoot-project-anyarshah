@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Snake extends Actor
 {
+    MyWorld world = (MyWorld) getWorld();
     GreenfootSound snakeSound = new GreenfootSound("snake_sound.mp3");
     GreenfootSound bombSound = new GreenfootSound("bomb_sound.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[6];
@@ -123,7 +124,6 @@ public class Snake extends Actor
         {
             snakeSound.play();
             removeTouching(Mouse.class);
-            MyWorld world = (MyWorld) getWorld();
             world.spawnMouse();
             world.increaseScore();
             if(world.score % 10 == 0)
@@ -140,7 +140,6 @@ public class Snake extends Actor
         if(isTouching(Bomb.class))
         {
             bombSound.play();
-            MyWorld world = (MyWorld) getWorld();
             world.gameOver();
             Greenfoot.stop();
         }
@@ -151,7 +150,6 @@ public class Snake extends Actor
          */
         if(isAtEdge())
         {
-            MyWorld world = (MyWorld) getWorld();
             world.gameOver();
             Greenfoot.stop();
         }
@@ -164,7 +162,6 @@ public class Snake extends Actor
      */
     public void nextLevel()
     {
-        MyWorld world = (MyWorld) getWorld();
         if(world.score == 15)
         {
             Label nextLevelLabel = new Label("You beat this level!", 55);
