@@ -8,6 +8,50 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Astronaut extends Actor
 {
+    GreenfootSound starSound = new GreenfootSound("star_sound.mp3");
+    GreenfootImage[] idleRight = new GreenfootImage[5];
+    GreenfootImage[] idleLeft = new GreenfootImage[5];
+    
+    // Direction the astronaut is facing.
+    String facing = "right";
+    SimpleTimer animationTimer = new SimpleTimer();
+    public Astronaut()
+    {
+        for(int i = 0; i < idleRight.length; i++)
+        {
+            idleRight[i] = new GreenfootImage("images/astronaut_idle/idle" + i + ".png");
+            idleRight[i].scale(70, 90);
+        }
+        for(int i = 0; i < idleLeft.length; i++)
+        {
+            idleLeft[i] = new GreenfootImage("images/astronaut_idle/idle" + i + ".png");
+            idleLeft[i].mirrorHorizontally();
+            idleLeft[i].scale(70, 90);
+        }
+        animationTimer.mark();
+        // Sets intital astronaut image.
+        setImage(idleRight[0]);
+    }
+    // Animates astronaut.
+    int imageIndex = 0;
+    public void animateAstronaut()
+    {
+        if(animationTimer.millisElapsed() < 200)
+        {
+            return;
+        }
+        animationTimer.mark();
+        if(facing.equals("right"))
+        {
+            setImage(idleRight[imageIndex]);   
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        }
+        if(facing.equals("left"))
+        {
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
+    }
     /**
      * Moves the astronaut using the arrow keys.
      */
@@ -16,11 +60,14 @@ public class Astronaut extends Actor
         if(Greenfoot.isKeyDown("right"))
         {
             move(2);
+            facing = "right";
         }
         if(Greenfoot.isKeyDown("left"))
         {
             move(-2);
+            facing = "left";
         }
+        animateAstronaut();
         capture();
         nextLevel();
     }
@@ -50,6 +97,7 @@ public class Astronaut extends Actor
             world.spawnStar();
             world.increaseScore();
             world.increaseScore();
+            starSound.play();
             if(world.score % 5 == 0)
             {
                 world.spawnAsteroid();   
