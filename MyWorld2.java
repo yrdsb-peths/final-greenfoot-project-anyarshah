@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Level 2 of the game: The world where the astronaut, star, and asteroid exist.
  * 
  * @author Anya Shah
- * @version 12/27/2022
+ * @version 12/28/2022
  */
 public class MyWorld2 extends World
 {
@@ -20,6 +20,8 @@ public class MyWorld2 extends World
         addObject(astronaut, 100, 400);
         // Spawns an asteroid randomly in the world.
         spawnAsteroid();
+        // Spawns a star randomly in the world.
+        spawnStar();
     }
     public void spawnAsteroid()
     {
@@ -28,5 +30,13 @@ public class MyWorld2 extends World
         int x = Greenfoot.getRandomNumber(501);
         int y = 10;
         addObject(asteroid, x + 50, y);
+    }
+    public void spawnStar()
+    {
+        Star star = new Star();
+        star.setSpeed(level);
+        int x = Greenfoot.getRandomNumber(501);
+        int y = 10;
+        addObject(star, x + 50, y);
     }
 }
