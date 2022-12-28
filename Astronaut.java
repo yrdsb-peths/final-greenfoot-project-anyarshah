@@ -1,19 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Astronaut here.
+ * The astronaut.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Anya Shah
+ * @version 12/28/2022
  */
 public class Astronaut extends Actor
 {
     /**
-     * Act - do whatever the Astronaut wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Moves the astronaut using the arrow keys.
      */
     public void act()
     {
-        // Add your action code here.
+        if(Greenfoot.isKeyDown("right"))
+        {
+            move(2);
+        }
+        if(Greenfoot.isKeyDown("left"))
+        {
+            move(-2);
+        }
     }
 }
