@@ -18,6 +18,7 @@ public class Star extends Actor
         MyWorld2 world = (MyWorld2) getWorld();
         if(getY() >= world.getHeight())
         {
+            world.decreaseScore();
             world.spawnStar();
             getWorld().removeObject(this);
         }
