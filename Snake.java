@@ -10,6 +10,7 @@ public class Snake extends Actor
 {
     GreenfootSound snakeSound = new GreenfootSound("snake_sound.mp3");
     GreenfootSound bombSound = new GreenfootSound("bomb_sound.mp3");
+    GreenfootSound gameOverSound = new GreenfootSound("game_over.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[6];
     GreenfootImage[] idleLeft = new GreenfootImage[6];
     GreenfootImage[] idleUp = new GreenfootImage[6];
@@ -141,6 +142,7 @@ public class Snake extends Actor
         {
             bombSound.play();
             world.gameOver();
+            gameOverSound.play();
             Greenfoot.stop();
         }
         /**
@@ -151,6 +153,7 @@ public class Snake extends Actor
         if(isAtEdge())
         {
             world.gameOver();
+            gameOverSound.play();
             Greenfoot.stop();
         }
     }

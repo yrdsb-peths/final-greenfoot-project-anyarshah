@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Astronaut extends Actor
 {
     GreenfootSound starSound = new GreenfootSound("star_sound.mp3");
+    GreenfootSound gameOverSound = new GreenfootSound("game_over.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[5];
     GreenfootImage[] idleLeft = new GreenfootImage[5];
     
@@ -82,6 +83,7 @@ public class Astronaut extends Actor
         if(isTouching(Asteroid.class))
         {
             world.gameOver();
+            gameOverSound.play();
             Greenfoot.stop();
         }
         /**
