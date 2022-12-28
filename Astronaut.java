@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Astronaut extends Actor
 {
-    MyWorld2 world = (MyWorld2) getWorld();
     GreenfootSound starSound = new GreenfootSound("star_sound.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[5];
     GreenfootImage[] idleLeft = new GreenfootImage[5];
@@ -74,6 +73,7 @@ public class Astronaut extends Actor
     }
     public void capture()
     {
+        MyWorld2 world = (MyWorld2) getWorld();
         /**
          * If astronaut hits asteroid:
          * Game over appears on screen.
@@ -96,12 +96,12 @@ public class Astronaut extends Actor
             world.spawnStar();
             world.increaseScore();
             world.increaseScore();
-        }
-        // If the score is a multiple of 8, an asteroid an a star appears.
-        if(world.score % 8 == 0)
-        {
-            world.spawnAsteroid();
-            world.spawnStar();
+            // If the score is a multiple of 8, an asteroid an a star appears.
+            if(world.score % 8 == 0)
+            {
+                world.spawnAsteroid();
+                world.spawnStar();
+            }
         }
     }
     /**
@@ -112,6 +112,7 @@ public class Astronaut extends Actor
      */
     public void nextLevel()
     {
+        MyWorld2 world = (MyWorld2) getWorld();
         if(world.score == 30)
         {
             Label nextLevelLabel = new Label("You beat this level!", 55);
