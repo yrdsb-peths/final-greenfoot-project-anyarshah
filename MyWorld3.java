@@ -1,21 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld3 here.
+ * Level 3 of the game: The world where the sailor, fish, and shark exist. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Anya Shah 
+ * @version 01/09/2023
  */
 public class MyWorld3 extends World
 {
-
     /**
      * Constructor for objects of class MyWorld3.
-     * 
      */
     public MyWorld3()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 500, 1, false); 
     }
 }
