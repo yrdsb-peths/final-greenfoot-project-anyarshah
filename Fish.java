@@ -14,6 +14,13 @@ public class Fish extends Actor
         int x = getX() + speed;
         int y = getY();
         setLocation(x, y);
+        
+        MyWorld3 world = (MyWorld3) getWorld();
+        if(getX() >= world.getWidth())
+        {
+            world.spawnFish();
+            getWorld().removeObject(this);
+        }
     }
     public void setSpeed(int spd)
     {
