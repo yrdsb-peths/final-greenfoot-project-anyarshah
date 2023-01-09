@@ -8,8 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Fish extends Actor
 {
+    int speed = 1;
     public void act()
     {
-        // Add your action code here.
+        int x = getX() + speed;
+        int y = getY();
+        setLocation(x, y);
+    }
+    public void setSpeed(int spd)
+    {
+        speed = spd;
     }
 }

@@ -13,6 +13,9 @@ public class MyWorld3 extends World
      */
     public MyWorld3()
     {    
-        super(600, 500, 1, false); 
+        super(600, 500, 1, false);
+        // Create a diver.
+        Diver diver = new Diver();
+        addObject(diver, 500, 250);
     }
 }
