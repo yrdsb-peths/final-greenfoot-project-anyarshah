@@ -1,24 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The asteroid, obstacle to the astronaut.
+ * The fish.
  * 
- * @author Anya Shah
- * @version 12/28/2022
+ * @author Anya Shah 
+ * @version 01/09/2023
  */
-public class Asteroid extends Actor
+public class Fish extends Actor
 {
     int speed = 1;
     public void act()
     {
-        int x = getX();
-        int y = getY() + speed;
+        int x = getX() + speed;
+        int y = getY();
         setLocation(x, y);
         
-        MyWorld2 world = (MyWorld2) getWorld();
-        if(getY() >= world.getHeight())
+        MyWorld3 world = (MyWorld3) getWorld();
+        if(getX() >= world.getWidth())
         {
-            world.spawnAsteroid();
+            world.spawnFish();
             getWorld().removeObject(this);
         }
     }

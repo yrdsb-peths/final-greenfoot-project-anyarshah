@@ -10,6 +10,7 @@ public class Snake extends Actor
 {
     GreenfootSound snakeSound = new GreenfootSound("snake_sound.mp3");
     GreenfootSound bombSound = new GreenfootSound("bomb_sound.mp3");
+    GreenfootSound gameOverSound = new GreenfootSound("game_over.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[6];
     GreenfootImage[] idleLeft = new GreenfootImage[6];
     GreenfootImage[] idleUp = new GreenfootImage[6];
@@ -112,6 +113,7 @@ public class Snake extends Actor
     }
     public void eat()
     {
+        MyWorld world = (MyWorld) getWorld();
         /**
          * Removes the mouse from the screen when the snake touches it.
          * Spawns a new mouse once one is eaten.
@@ -121,11 +123,10 @@ public class Snake extends Actor
          */
         if(isTouching(Mouse.class))
         {
+            snakeSound.play();
             removeTouching(Mouse.class);
-            MyWorld world = (MyWorld) getWorld();
             world.spawnMouse();
             world.increaseScore();
-            snakeSound.play();
             if(world.score % 10 == 0)
             {
                 world.spawnBomb();   
@@ -139,9 +140,9 @@ public class Snake extends Actor
          */
         if(isTouching(Bomb.class))
         {
-            MyWorld world = (MyWorld) getWorld();
             bombSound.play();
             world.gameOver();
+            gameOverSound.play();
             Greenfoot.stop();
         }
         /**
@@ -151,8 +152,8 @@ public class Snake extends Actor
          */
         if(isAtEdge())
         {
-            MyWorld world = (MyWorld) getWorld();
             world.gameOver();
+            gameOverSound.play();
             Greenfoot.stop();
         }
     }
