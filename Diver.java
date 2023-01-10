@@ -24,4 +24,8 @@ public class Diver extends Actor
             move(2);
         }
     }
+    public void save()
+    {
+        
+    }
 }

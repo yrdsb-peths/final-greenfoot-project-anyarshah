@@ -11,6 +11,8 @@ public class MyWorld3 extends World
     /**
      * Constructor for objects of class MyWorld3.
      */
+    public int score = 0;
+    Label scoreLabel;
     int level = 1;
     public MyWorld3()
     {    
@@ -22,6 +24,9 @@ public class MyWorld3 extends World
         spawnFish();
         // Spawns a shark randomly in the world.
         spawnShark();
+        // Creates a score label. 
+        scoreLabel = new Label(0, 80);
+        addObject(scoreLabel, 50, 50);
     }
     public void spawnFish()
     {
@@ -38,5 +43,20 @@ public class MyWorld3 extends World
         int x = 10;
         int y = Greenfoot.getRandomNumber(401);
         addObject(shark, x, y + 50);
+    }
+    public void increaseScore()
+    {
+        score++;
+        scoreLabel.setValue(score);
+    }
+    public void decreaseBy2()
+    {
+        score -= 2;
+        scoreLabel.setValue(score);
+    }
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("Game Over", 100);
+        addObject(gameOverLabel, getWidth() / 2, getHeight() / 2);
     }
 }
