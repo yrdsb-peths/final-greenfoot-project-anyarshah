@@ -24,6 +24,7 @@ public class Diver extends Actor
             move(2);
         }
         save();
+        endGame();
     }
     public void save()
     {
@@ -55,5 +56,31 @@ public class Diver extends Actor
             world.gameOver();
             Greenfoot.stop();
         }
+    }
+    /**
+     * Once the score is 45, 3 labels appear on the screen.
+     * One says the player beat the game.
+     * The other one thanks the player for playing.
+     * Once the player clicks the spacebar, they can restart the game.
+     */
+    public void endGame()
+    {
+        MyWorld3 world = (MyWorld3) getWorld();
+        if(world.score == 45)
+        {
+            Label gameDone = new Label("You beat the game!", 55);
+            gameDone.setFillColor(Color.PINK);
+            world.addObject(gameDone, 300, 125);
+            Label thanks = new Label("Thanks for playing!", 55);
+            thanks.setFillColor(Color.PINK);
+            world.addObject(thanks, 300, 250);
+            Label restart = new Label("Press <space> to restart.", 55);
+            restart.setFillColor(Color.PINK);
+            world.addObject(restart, 300, 375);
+            if(Greenfoot.isKeyDown("space"))
+            {
+                Greenfoot.setWorld(new MyWorld());
+            }
+        }       
     }
 }

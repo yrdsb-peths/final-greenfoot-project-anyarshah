@@ -108,7 +108,7 @@ public class Astronaut extends Actor
     }
     /**
      * Once the score is 30, 2 labels appear on the screen.
-     * One says the player beat the first level.
+     * One says the player beat the level.
      * The other one instructs the player on what to do to move on.
      * Once the player clicks the spacebar, they move on to the next level.
      */
