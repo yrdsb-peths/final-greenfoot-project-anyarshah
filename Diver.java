@@ -4,10 +4,53 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The diver.
  * 
  * @author Anya Shah
- * @version 01/10/2023
+ * @version 01/11/2023
  */
 public class Diver extends Actor
 {
+    GreenfootImage[] idleUp = new GreenfootImage[8];
+    GreenfootImage[] idleDown = new GreenfootImage[8];
+    
+    // Direction the diver is facing.
+    String facing = "up";
+    SimpleTimer animationTimer = new SimpleTimer();
+    public Diver()
+    {
+        for(int i = 0; i < idleUp.length; i++)
+        {
+            idleUp[i] = new GreenfootImage("images/diver_idle/idle" + i + ".png");
+            idleUp[i].scale(90, 40);
+        }
+        for(int i = 0; i < idleDown.length; i++)
+        {
+            idleDown[i] = new GreenfootImage("images/diver_idle/idle" + i + ".png");
+            idleDown[i].mirrorVertically();
+            idleDown[i].scale(90, 40);
+        }
+        animationTimer.mark();
+        // Sets the intial image of the diver.
+        setImage(idleUp[0]);
+    }
+    // Animates the diver.
+    int imageIndex = 0;
+    public void animateDiver()
+    {
+        if(animationTimer.millisElapsed() < 100)
+        {
+            return;
+        }
+        animationTimer.mark();
+        if(facing.equals("up"))
+        {
+            setImage(idleUp[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleUp.length;
+        }
+        if(facing.equals("down"))
+        {
+            setImage(idleDown[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleDown.length;
+        }
+    }
     /**
      * Moves the astronaut up and down using the arrow keys.
      */
@@ -17,12 +60,15 @@ public class Diver extends Actor
         {
             setRotation(270);
             move(2);
+            facing = "up";
         }
         if(Greenfoot.isKeyDown("down"))
         {
             setRotation(90);
             move(2);
+            facing = "down";
         }
+        animateDiver();
         save();
         endGame();
     }
