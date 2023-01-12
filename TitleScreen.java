@@ -29,6 +29,9 @@ public class TitleScreen extends World
     private void prepare()
     {
         Label label = new Label("3 Levels", 80);
-        addObject(label, 300,160);
+        addObject(label, 300, 160);
+        addObject(new Snake(), 150, 250);
+        addObject(new Astronaut(), 300, 250);
+        addObject(new Diver(), 450, 250);
     }
 }
