@@ -113,7 +113,6 @@ public class Snake extends Actor
     }
     public void eat()
     {
-        MyWorld world = (MyWorld) getWorld();
         /**
          * Removes the mouse from the screen when the snake touches it.
          * Spawns a new mouse once one is eaten.
@@ -123,6 +122,7 @@ public class Snake extends Actor
          */
         if(isTouching(Mouse.class))
         {
+            MyWorld world = (MyWorld) getWorld();
             snakeSound.play();
             removeTouching(Mouse.class);
             world.spawnMouse();
@@ -140,6 +140,7 @@ public class Snake extends Actor
          */
         if(isTouching(Bomb.class))
         {
+            MyWorld world = (MyWorld) getWorld();
             bombSound.play();
             world.gameOver();
             gameOverSound.play();
@@ -152,6 +153,7 @@ public class Snake extends Actor
          */
         if(isAtEdge())
         {
+            MyWorld world = (MyWorld) getWorld();
             world.gameOver();
             gameOverSound.play();
             Greenfoot.stop();
