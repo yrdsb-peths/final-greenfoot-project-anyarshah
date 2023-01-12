@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Diver extends Actor
 {
+    GreenfootSound bubble = new GreenfootSound("fish_sound.mp3");
+    GreenfootSound gameOverSound = new GreenfootSound("game_over.mp3");
     GreenfootImage[] idleUp = new GreenfootImage[8];
     GreenfootImage[] idleDown = new GreenfootImage[8];
     
@@ -83,6 +85,7 @@ public class Diver extends Actor
          */
         if(isTouching(Fish.class))
         {
+            bubble.play();
             removeTouching(Fish.class);
             world.spawnFish();
             world.increaseScore();
@@ -99,6 +102,7 @@ public class Diver extends Actor
          */
         if(isTouching(Shark.class))
         {
+            gameOverSound.play();
             world.gameOver();
             Greenfoot.stop();
         }
