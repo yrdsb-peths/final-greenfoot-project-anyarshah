@@ -15,7 +15,6 @@ public class Snake extends Actor
     GreenfootImage[] idleLeft = new GreenfootImage[6];
     GreenfootImage[] idleUp = new GreenfootImage[6];
     GreenfootImage[] idleDown = new GreenfootImage[6];
-    
     // Direction the snake is facing.
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
@@ -113,7 +112,6 @@ public class Snake extends Actor
     }
     public void eat()
     {
-        MyWorld world = (MyWorld) getWorld();
         /**
          * Removes the mouse from the screen when the snake touches it.
          * Spawns a new mouse once one is eaten.
@@ -123,6 +121,7 @@ public class Snake extends Actor
          */
         if(isTouching(Mouse.class))
         {
+            MyWorld world = (MyWorld) getWorld();
             snakeSound.play();
             removeTouching(Mouse.class);
             world.spawnMouse();
@@ -140,6 +139,7 @@ public class Snake extends Actor
          */
         if(isTouching(Bomb.class))
         {
+            MyWorld world = (MyWorld) getWorld();
             bombSound.play();
             world.gameOver();
             gameOverSound.play();
@@ -152,6 +152,7 @@ public class Snake extends Actor
          */
         if(isAtEdge())
         {
+            MyWorld world = (MyWorld) getWorld();
             world.gameOver();
             gameOverSound.play();
             Greenfoot.stop();
@@ -165,9 +166,9 @@ public class Snake extends Actor
      */
     public void nextLevel()
     {
-        MyWorld world = (MyWorld) getWorld();
-        if(world.score == 15)
+        if(MyWorld.score == 15)
         {
+            MyWorld world = (MyWorld) getWorld();
             Label nextLevelLabel = new Label("You beat this level!", 55);
             nextLevelLabel.setFillColor(Color.BLUE);
             world.addObject(nextLevelLabel, 300, 175);

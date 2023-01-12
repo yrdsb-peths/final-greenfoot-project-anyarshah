@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Diver extends Actor
 {
+    GreenfootSound bubble = new GreenfootSound("fish_sound.mp3");
+    GreenfootSound gameOverSound = new GreenfootSound("game_over.mp3");
     GreenfootImage[] idleUp = new GreenfootImage[8];
     GreenfootImage[] idleDown = new GreenfootImage[8];
     
@@ -74,7 +76,6 @@ public class Diver extends Actor
     }
     public void save()
     {
-        MyWorld3 world = (MyWorld3) getWorld();
         /**
          * Removes the fish from the screen when the diver saves it.
          * Spawns another fish.
@@ -83,6 +84,8 @@ public class Diver extends Actor
          */
         if(isTouching(Fish.class))
         {
+            MyWorld3 world = (MyWorld3) getWorld();
+            bubble.play();
             removeTouching(Fish.class);
             world.spawnFish();
             world.increaseScore();
@@ -99,6 +102,8 @@ public class Diver extends Actor
          */
         if(isTouching(Shark.class))
         {
+            MyWorld3 world = (MyWorld3) getWorld();
+            gameOverSound.play();
             world.gameOver();
             Greenfoot.stop();
         }
@@ -111,9 +116,9 @@ public class Diver extends Actor
      */
     public void endGame()
     {
-        MyWorld3 world = (MyWorld3) getWorld();
-        if(world.score == 45)
+        if(MyWorld3.score == 45)
         {
+            MyWorld3 world = (MyWorld3) getWorld();
             Label gameDone = new Label("You beat the game!", 55);
             gameDone.setFillColor(Color.PINK);
             world.addObject(gameDone, 300, 125);
