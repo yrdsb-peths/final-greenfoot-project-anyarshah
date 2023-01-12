@@ -74,7 +74,6 @@ public class Astronaut extends Actor
     }
     public void capture()
     {
-        MyWorld2 world = (MyWorld2) getWorld();
         /**
          * If astronaut hits asteroid:
          * Game over appears on screen.
@@ -82,6 +81,7 @@ public class Astronaut extends Actor
          */
         if(isTouching(Asteroid.class))
         {
+            MyWorld2 world = (MyWorld2) getWorld();
             world.gameOver();
             gameOverSound.play();
             Greenfoot.stop();
@@ -93,6 +93,7 @@ public class Astronaut extends Actor
          */
         if(isTouching(Star.class))
         {
+            MyWorld2 world = (MyWorld2) getWorld();
             starSound.play();
             removeTouching(Star.class);
             world.spawnStar();
@@ -114,9 +115,9 @@ public class Astronaut extends Actor
      */
     public void nextLevel()
     {
-        MyWorld2 world = (MyWorld2) getWorld();
-        if(world.score == 30)
+        if(MyWorld2.score == 30)
         {
+            MyWorld2 world = (MyWorld2) getWorld();
             Label nextLevelLabel = new Label("You beat this level!", 55);
             nextLevelLabel.setFillColor(Color.GREEN);
             world.addObject(nextLevelLabel, 300, 175);

@@ -11,7 +11,7 @@ public class MyWorld2 extends World
     /**
      * Constructor for objects of class MyWorld2.
      */
-    public int score = 0;
+    public static int score = 0;
     Label scoreLabel;
     int level = 1;
     public MyWorld2()

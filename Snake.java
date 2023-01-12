@@ -15,7 +15,6 @@ public class Snake extends Actor
     GreenfootImage[] idleLeft = new GreenfootImage[6];
     GreenfootImage[] idleUp = new GreenfootImage[6];
     GreenfootImage[] idleDown = new GreenfootImage[6];
-    boolean gameStarted = false;
     // Direction the snake is facing.
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
@@ -109,9 +108,7 @@ public class Snake extends Actor
         }
         animateSnake();
         eat();
-        if(gameStarted){
-            nextLevel();
-        }
+        nextLevel();
     }
     public void eat()
     {
