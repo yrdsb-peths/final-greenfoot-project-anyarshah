@@ -15,7 +15,7 @@ public class Snake extends Actor
     GreenfootImage[] idleLeft = new GreenfootImage[6];
     GreenfootImage[] idleUp = new GreenfootImage[6];
     GreenfootImage[] idleDown = new GreenfootImage[6];
-    
+    boolean gameStarted = false;
     // Direction the snake is facing.
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
@@ -109,7 +109,9 @@ public class Snake extends Actor
         }
         animateSnake();
         eat();
-        nextLevel();
+        if(gameStarted){
+            nextLevel();
+        }
     }
     public void eat()
     {
@@ -167,9 +169,9 @@ public class Snake extends Actor
      */
     public void nextLevel()
     {
-        MyWorld world = (MyWorld) getWorld();
-        if(world.score == 15)
+        if(MyWorld.score == 15)
         {
+            MyWorld world = (MyWorld) getWorld();
             Label nextLevelLabel = new Label("You beat this level!", 55);
             nextLevelLabel.setFillColor(Color.BLUE);
             world.addObject(nextLevelLabel, 300, 175);
