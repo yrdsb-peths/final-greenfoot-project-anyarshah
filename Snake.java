@@ -177,7 +177,7 @@ public class Snake extends Actor
             world.addObject(moveOnLabel, 300, 325);
             if(Greenfoot.isKeyDown("space"))
             {
-                Greenfoot.setWorld(new MyWorld2());
+                Greenfoot.setWorld(new Instructions2());
             }
         }
     }

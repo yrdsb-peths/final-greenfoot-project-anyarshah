@@ -99,7 +99,7 @@ public class Astronaut extends Actor
             world.spawnStar();
             world.increaseScore();
             world.increaseScore();
-            // If the score is a multiple of 8, an asteroid an a star appears.
+            // If the score is a multiple of 8, an asteroid and a star appears.
             if(world.score % 8 == 0)
             {
                 world.spawnAsteroid();
