@@ -115,7 +115,7 @@ public class Astronaut extends Actor
      */
     public void nextLevel()
     {
-        if(MyWorld2.score == 30)
+        if(MyWorld2.score >= 30)
         {
             MyWorld2 world = (MyWorld2) getWorld();
             Label nextLevelLabel = new Label("You beat this level!", 55);
