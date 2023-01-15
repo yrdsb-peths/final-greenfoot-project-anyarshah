@@ -105,6 +105,7 @@ public class Diver extends Actor
             MyWorld3 world = (MyWorld3) getWorld();
             gameOverSound.play();
             world.gameOver();
+            world.score = 0;
             Greenfoot.stop();
         }
     }

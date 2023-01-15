@@ -142,6 +142,7 @@ public class Snake extends Actor
             MyWorld world = (MyWorld) getWorld();
             bombSound.play();
             world.gameOver();
+            world.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }
@@ -154,6 +155,7 @@ public class Snake extends Actor
         {
             MyWorld world = (MyWorld) getWorld();
             world.gameOver();
+            world.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }

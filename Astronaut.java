@@ -83,6 +83,7 @@ public class Astronaut extends Actor
         {
             MyWorld2 world = (MyWorld2) getWorld();
             world.gameOver();
+            world.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }
