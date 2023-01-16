@@ -37,7 +37,7 @@ public class Astronaut extends Actor
     int imageIndex = 0;
     public void animateAstronaut()
     {
-        if(animationTimer.millisElapsed() < 200)
+        if(animationTimer.millisElapsed() < 120)
         {
             return;
         }

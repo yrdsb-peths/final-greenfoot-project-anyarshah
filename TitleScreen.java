@@ -11,7 +11,7 @@ public class TitleScreen extends World
     public TitleScreen()
     {    
         super(600, 500, 1, false);
-        Label titleLabel = new Label("Game Title", 80);
+        Label titleLabel = new Label("Catch and Avoid", 80);
         addObject(titleLabel, 300, 125);
         prepare();
     }

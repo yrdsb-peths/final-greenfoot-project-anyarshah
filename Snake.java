@@ -49,7 +49,7 @@ public class Snake extends Actor
     int imageIndex = 0;
     public void animateSnake()
     {
-        if(animationTimer.millisElapsed() < 175)
+        if(animationTimer.millisElapsed() < 120)
         {
             return;
         }
