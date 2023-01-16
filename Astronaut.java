@@ -83,6 +83,7 @@ public class Astronaut extends Actor
         {
             MyWorld2 world = (MyWorld2) getWorld();
             world.gameOver();
+            world.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }
@@ -99,7 +100,7 @@ public class Astronaut extends Actor
             world.spawnStar();
             world.increaseScore();
             world.increaseScore();
-            // If the score is a multiple of 8, an asteroid an a star appears.
+            // If the score is a multiple of 8, an asteroid and a star appears.
             if(world.score % 8 == 0)
             {
                 world.spawnAsteroid();
@@ -115,7 +116,7 @@ public class Astronaut extends Actor
      */
     public void nextLevel()
     {
-        if(MyWorld2.score == 30)
+        if(MyWorld2.score >= 30)
         {
             MyWorld2 world = (MyWorld2) getWorld();
             Label nextLevelLabel = new Label("You beat this level!", 55);

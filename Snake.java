@@ -142,6 +142,7 @@ public class Snake extends Actor
             MyWorld world = (MyWorld) getWorld();
             bombSound.play();
             world.gameOver();
+            world.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }
@@ -154,6 +155,7 @@ public class Snake extends Actor
         {
             MyWorld world = (MyWorld) getWorld();
             world.gameOver();
+            world.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }
@@ -166,7 +168,7 @@ public class Snake extends Actor
      */
     public void nextLevel()
     {
-        if(MyWorld.score == 15)
+        if(MyWorld.score == 20)
         {
             MyWorld world = (MyWorld) getWorld();
             Label nextLevelLabel = new Label("You beat this level!", 55);
@@ -177,7 +179,7 @@ public class Snake extends Actor
             world.addObject(moveOnLabel, 300, 325);
             if(Greenfoot.isKeyDown("space"))
             {
-                Greenfoot.setWorld(new MyWorld2());
+                Greenfoot.setWorld(new Instructions2());
             }
         }
     }

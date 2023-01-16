@@ -94,6 +94,10 @@ public class Diver extends Actor
             {
                 world.spawnShark();
             }
+            if(world.score % 15 == 0)
+            {
+                world.spawnFish();
+            }
         }
         /**
          * If diver touches shark:
@@ -105,6 +109,7 @@ public class Diver extends Actor
             MyWorld3 world = (MyWorld3) getWorld();
             gameOverSound.play();
             world.gameOver();
+            world.score = 0;
             Greenfoot.stop();
         }
     }
@@ -116,7 +121,7 @@ public class Diver extends Actor
      */
     public void endGame()
     {
-        if(MyWorld3.score == 45)
+        if(MyWorld3.score == 40)
         {
             MyWorld3 world = (MyWorld3) getWorld();
             Label gameDone = new Label("You beat the game!", 55);
