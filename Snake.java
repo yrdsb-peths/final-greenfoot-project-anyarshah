@@ -168,7 +168,7 @@ public class Snake extends Actor
      */
     public void nextLevel()
     {
-        if(MyWorld.score == 15)
+        if(MyWorld.score == 20)
         {
             MyWorld world = (MyWorld) getWorld();
             Label nextLevelLabel = new Label("You beat this level!", 55);
