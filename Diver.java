@@ -37,7 +37,7 @@ public class Diver extends Actor
     int imageIndex = 0;
     public void animateDiver()
     {
-        if(animationTimer.millisElapsed() < 100)
+        if(animationTimer.millisElapsed() < 120)
         {
             return;
         }
