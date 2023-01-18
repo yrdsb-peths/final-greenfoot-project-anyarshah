@@ -90,11 +90,11 @@ public class Diver extends Actor
             world.spawnFish();
             world.increaseScore();
             // Every time the diver saves ten fish, another shark spawns. 
-            if(world.score % 10 == 0)
+            if(MyWorld3.score % 10 == 0)
             {
                 world.spawnShark();
             }
-            if(world.score % 15 == 0)
+            if(MyWorld3.score % 15 == 0)
             {
                 world.spawnFish();
             }
@@ -109,19 +109,19 @@ public class Diver extends Actor
             MyWorld3 world = (MyWorld3) getWorld();
             gameOverSound.play();
             world.gameOver();
-            world.score = 0;
+            MyWorld3.score = 0;
             Greenfoot.stop();
         }
     }
     /**
-     * Once the score is 45, 3 labels appear on the screen.
+     * Once the score is 30, 3 labels appear on the screen.
      * One says the player beat the game.
      * The other one thanks the player for playing.
      * Once the player clicks the spacebar, they can restart the game.
      */
     public void endGame()
     {
-        if(MyWorld3.score == 40)
+        if(MyWorld3.score == 30)
         {
             MyWorld3 world = (MyWorld3) getWorld();
             Label gameDone = new Label("You beat the game!", 55);
