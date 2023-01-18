@@ -161,7 +161,7 @@ public class Snake extends Actor
         }
     }
     /**
-     * Once 15 mice are eaten, 2 labels appear on the screen.
+     * Once 20 mice are eaten, 2 labels appear on the screen.
      * One says the player beat the first level.
      * The other one instructs the player on what to do to move on.
      * Once the player clicks the spacebar, they move on to the next level.
