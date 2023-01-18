@@ -49,7 +49,7 @@ public class Snake extends Actor
     int imageIndex = 0;
     public void animateSnake()
     {
-        if(animationTimer.millisElapsed() < 120)
+        if(animationTimer.millisElapsed() < 175)
         {
             return;
         }
@@ -126,7 +126,7 @@ public class Snake extends Actor
             removeTouching(Mouse.class);
             world.spawnMouse();
             world.increaseScore();
-            if(world.score % 10 == 0)
+            if(MyWorld.score % 10 == 0)
             {
                 world.spawnBomb();   
             }
@@ -142,7 +142,7 @@ public class Snake extends Actor
             MyWorld world = (MyWorld) getWorld();
             bombSound.play();
             world.gameOver();
-            world.score = 0;
+            MyWorld.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }
@@ -155,7 +155,7 @@ public class Snake extends Actor
         {
             MyWorld world = (MyWorld) getWorld();
             world.gameOver();
-            world.score = 0;
+            MyWorld.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }

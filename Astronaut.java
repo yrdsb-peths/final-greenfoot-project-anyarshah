@@ -37,7 +37,7 @@ public class Astronaut extends Actor
     int imageIndex = 0;
     public void animateAstronaut()
     {
-        if(animationTimer.millisElapsed() < 120)
+        if(animationTimer.millisElapsed() < 175)
         {
             return;
         }
@@ -83,7 +83,7 @@ public class Astronaut extends Actor
         {
             MyWorld2 world = (MyWorld2) getWorld();
             world.gameOver();
-            world.score = 0;
+            MyWorld2.score = 0;
             gameOverSound.play();
             Greenfoot.stop();
         }
@@ -101,7 +101,7 @@ public class Astronaut extends Actor
             world.increaseScore();
             world.increaseScore();
             // If the score is a multiple of 8, an asteroid and a star appears.
-            if(world.score % 8 == 0)
+            if(MyWorld2.score % 8 == 0)
             {
                 world.spawnAsteroid();
                 world.spawnStar();
